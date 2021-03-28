@@ -10,7 +10,7 @@ from bokeh.layouts import row, column
 
 from typing import List
 
-def bokeh_figure(groove: IsoBaseGroove):
+def create_bokeh_figure(groove: IsoBaseGroove):
     """ Helper function for creating a generic bokeh figure """
     p: Figure = figure(height=400, width=800)
     profile = groove.to_profile()
@@ -44,7 +44,7 @@ if __name__ == "__main__":
     plot_list = []
     for groove in example_grooves:
         type_name = groove.__class__.__name__
-        plot = bokeh_figure(groove)
+        plot = create_bokeh_figure(groove)
         plot_list.append(row(plot))       
     groove_plots = column(*plot_list)
     output_file("plot.html")
