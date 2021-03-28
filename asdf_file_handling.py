@@ -23,6 +23,8 @@ if __name__ == "__main__":
     print(new_asdf_file.tree)
     # see more under https://asdf.readthedocs.io/en/stable/asdf/overview.html#creating-files
 
+    # doesn't work yaml_header = weldx.asdf.util.get_yaml_header(new_asdf_file)
+
     # some manipulation
     new_asdf_file.tree["workpiece"]["length"] = Q_(400, "mm")
 
