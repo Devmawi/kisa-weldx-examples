@@ -3,3 +3,4 @@ plot.html
 *.asdf
 *scratch*
 __pycache__
+.ipynb_checkpoints
