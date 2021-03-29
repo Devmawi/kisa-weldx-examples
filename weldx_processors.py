@@ -1,5 +1,5 @@
-""" This example demonstrates, shows what a module for 
-providing weldx functions like parameter forcast could look like """
+""" This example shows, what a module for 
+providing dynamic weldx functions like parameter calculations, e.g. could look like """
 
 import asdf
 import weldx
