@@ -24,7 +24,7 @@ def add_seam_length(file: asdf.AsdfFile)->asdf.AsdfFile:
     new_file.tree["workpiece"]["length"] = Q_(700, "mm") # in a real case, add some error handling!
     return new_file
     
-
+@processor_desciption(display_name="Process spray addition")
 def add_process_spray(file:asdf.AsdfFile)->asdf.AsdfFile:
     """ https://weldx.readthedocs.io/en/latest/tutorials/GMAW_process.html """
     

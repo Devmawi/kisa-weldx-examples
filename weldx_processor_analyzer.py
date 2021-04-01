@@ -25,11 +25,17 @@ def analyze_module(module):
 
 if __name__ == "__main__":
 
-    r = requests.get('https://api.github.com/repos/Devmawi/kisa-weldx-examples/contents/weldx_processors.py?ref=master')
-    print(r.status_code)
-    json_obj = r.json()
-    base64_string = json_obj["content"]
-    module_content = base64.b64decode(base64_string)
+    use_github = False
+    
+    if(use_github):
+        r = requests.get('https://api.github.com/repos/Devmawi/kisa-weldx-examples/contents/weldx_processors.py?ref=master')
+        print(r.status_code)
+        json_obj = r.json()
+        base64_string = json_obj["content"]
+        module_content = base64.b64decode(base64_string)
+    else:
+        with open("weldx_processors.py") as f:
+            module_content = f.read()
 
     spec = importlib.util.spec_from_loader('processor_module', loader=None)
     processor_module = importlib.util.module_from_spec(spec)
