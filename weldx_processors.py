@@ -10,6 +10,14 @@ from weldx.welding.groove.iso_9692_1 import get_groove, IsoBaseGroove, _create_t
 from weldx.core import TimeSeries as TS
 from weldx.welding.processes import GmawProcess
 
+
+def processor_desciption(display_name):    
+    def _processor_desciption(fn):
+        setattr(fn, "display_name", display_name)
+        return fn
+    return _processor_desciption
+
+@processor_desciption(display_name="seam length addition")
 def add_seam_length(file: asdf.AsdfFile)->asdf.AsdfFile:
 
     new_file = asdf.AsdfFile(file.tree) # make a copy
