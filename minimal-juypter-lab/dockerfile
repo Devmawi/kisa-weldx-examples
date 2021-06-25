@@ -15,6 +15,7 @@ RUN pip install voila
 RUN jupyter serverextension enable voila --sys-prefix
 
 COPY ./app .
+RUN pip install -r requirements.txt
 
 ENTRYPOINT [ "jupyter", "lab", "--notebook-dir=/opt/notebooks", "--allow-root", "--config", "/app/jupyter_notebook_config.py" ]
 
