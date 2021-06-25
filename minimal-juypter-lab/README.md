@@ -1,4 +1,4 @@
-# Mnimal Jupyter Lab Environment
+# Minimal Jupyter Lab Environment
 
 ## Prerequisites
 
