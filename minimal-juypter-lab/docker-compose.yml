@@ -1,0 +1,13 @@
+version: '2.1'
+
+services:
+  minimal-jupyter-lab:
+    image: minimal-jupyter-lab
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - 8888:8888
+    volumes: 
+      - ./opt/notebooks:/opt/notebooks
+  

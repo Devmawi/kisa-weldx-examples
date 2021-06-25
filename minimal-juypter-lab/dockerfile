@@ -1,0 +1,22 @@
+FROM python:3.8.9-slim-buster
+
+USER root
+
+WORKDIR /app
+RUN mkdir /opt/notebooks
+
+RUN pip install jupyterlab
+RUN apt-get update && apt-get install -y curl
+
+# https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && apt-get install -y nodejs
+
+RUN pip install voila
+RUN jupyter serverextension enable voila --sys-prefix
+
+COPY ./app .
+
+ENTRYPOINT [ "jupyter", "lab", "--notebook-dir=/opt/notebooks", "--allow-root", "--config", "/app/jupyter_notebook_config.py" ]
+
+EXPOSE 8888
+
